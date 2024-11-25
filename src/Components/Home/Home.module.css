@@ -1,0 +1,84 @@
+.contentContainer {
+    gap: 2rem;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-top: 7rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+}
+
+.starContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+
+.contentContainer input {
+    width: 100%;
+    height: 45px;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    background: #000000;
+    border: 1px solid #917c7c;
+    font-family: var(--font-ibmPlexMono);
+    outline: none;
+    font-size: 1.1rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+
+.contentContainer input:focus {
+    border: 1px solid #ffffff;
+}
+
+.inputcontainer {
+    width:45%;
+}
+
+.pasteBoard {
+    position: relative;
+}
+
+.ropes {
+    width: fit-content;
+    display: flex;
+    margin-left: auto;
+    margin-top: -0.8rem;
+    margin-bottom: 0;
+    margin-right: 6%;
+    transform: rotate(90deg);
+    flex-direction: column;
+    gap: 60px;
+}
+
+.ropes hr {
+    border: 1px solid;
+    color: #917c7c;
+    width: 40px;
+}
+
+.paste {
+    position: absolute;
+    left: -13px;
+    cursor: pointer;
+    right: 0;
+    height: fit-content;
+    top: 17px;
+    font-weight: 600;
+    transform: rotate(-90deg);
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    width: fit-content;
+    padding: 0.25rem 1.2rem;
+}

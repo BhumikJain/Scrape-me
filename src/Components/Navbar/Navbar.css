@@ -1,0 +1,113 @@
+
+.gooey-nav *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.gooey-nav{
+
+    width: fit-content;
+    background: var(--themeBg);
+    padding: var(--space1) var(--space5);
+    margin: 0 auto;
+    position: relative;
+    border-radius: 2rem;
+    transform-origin: center;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(.23, 1, 0.32, 1.2);
+    transform: rotate(var(--rotateTo));
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gooey-nav::before{
+    left: 10px;
+}
+
+.gooey-nav::after{
+    right: 10px;
+}
+
+.moving-strip{
+    width: var(--movingStripWidth);
+    height: 65%;
+    background: #000000;
+    position: absolute;
+    top: 0;
+    left: var(--movingStripX);
+    border-radius: 0 0 50% 50%;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1.2);
+}
+
+.moving-strip::before,
+.moving-strip::after{
+    --blendIntend: 2px;
+    --wh: 1.25em;
+    --fromX: calc(calc(var(--wh) - var(--blendIntend)) * -1);
+    content: "";
+    width: var(--wh);
+    height: var(--wh);
+    background: inherit;
+    position: absolute;
+    top: calc(var(--blendIntend) * -1);
+}
+
+.moving-strip::before{
+    left: var(--fromX);
+    mask-image: radial-gradient(circle at bottom left, transparent 60%, #000 65%);
+}
+
+.moving-strip::after{
+    right: var(--fromX);
+    mask-image: radial-gradient(circle at bottom right, transparent 60%, #000 65%);
+}
+
+.gooey-nav ul{
+    display: flex;
+    gap: var(--space2);
+}
+
+.gooey-nav ul li{
+    --pseudoY: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    color: var(--liClrBasic);
+    background: var(--themeBg);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1.2);
+    transition-delay: 0.15s;
+}
+
+.gooey-nav ul li svg{
+    width: 20px;
+    height: 20px;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.gooey-nav ul li:hover{
+    color: var(--liClrActive);
+}
+
+.gooey-nav ul li:hover svg{
+    filter: var(--slightShadow);
+}
+
+.gooey-nav ul li.active{
+    color: var(--liClrActive);
+    transform: translateY(-1em);
+}
+
+.gooey-nav ul li.active svg{
+    filter: var(--slightShadow);
+    opacity: 1; 
+}
+
